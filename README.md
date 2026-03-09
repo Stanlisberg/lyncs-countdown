@@ -13,20 +13,20 @@ A beautiful, responsive countdown timer app built with React and Tailwind CSS.
 
 ## What I Built
 
-A single-page web app that lets you create, manage, and visually track multiple countdown timers for important events — birthdays, deadlines, product launches, holidays, anniversaries, and more.
+A single-page web app that lets you create, manage, and visually track multiple countdown timers for important events like birthdays, deadlines, product launches, holidays, anniversaries, and more.
 
 ### Features
 
 - **Create timers** with a name, date/time, optional description, and category
-- **Live countdowns** showing days, hours, minutes, and seconds — updating every second
-- **Urgency indicators** that visually distinguish events:
+- **Live countdowns** showing days, hours, minutes, and seconds
+- **Urgency indicators** visually distinguish events by hierarchy:
   - **Upcoming** — more than 7 days away (terracotta brown badge)
   - **This Week** — within 7 days (gray badge)
   - **Very Soon!** — within 24 hours (pulsing rose badge)
   - **Passed** — event has occurred (dimmed card)
 - **Edit and delete** timers with confirmation dialogs
 - **Sort** by date, name, or recently added
-- **Persistent storage** via `localStorage` — data survives page refreshes
+- **Persistent storage** via `localStorage` : data persist on page refreshes
 - **Responsive grid** layout (1 → 2 → 3 columns)
 
 ## Design Choices
@@ -61,7 +61,7 @@ Provides a simple and reliable way to display feedback notification when adding,
 
 ## Challenges
 
-- **Tailwind v4 dynamic classes**: Tailwind v4 uses CSS-first configuration, so dynamically constructed class names (like `bg-violet-500`) need to be in the source or mapped statically. Solved by using a static `COLOR_MAP` object with pre-written class strings.
+- **Tailwind v4 dynamic classes**: Tailwind v4 uses CSS-first configuration, so dynamically constructed class names (like `bg-rose-500`) need to be in the source or mapped statically. Solved by using a static `COLOR_MAP` object with pre-written class strings.
 - **datetime-local styling**: The native input is notoriously hard to style cross-browser. Used `[color-scheme:dark]` to get a dark calendar picker.
 - **Design**: No design was provided, so I researched online for inspiration and adjusted it to meet the requirements.
 
