@@ -70,7 +70,7 @@ function ModalForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-3">
       <div>
         <label className="flex items-center gap-1.5 text-xs font-semibold text-[#2C2418] uppercase tracking-wider mb-1.5">
           <Type size={11} />
@@ -149,7 +149,7 @@ function ModalForm({
               onClick={() => setForm((form) => ({ ...form, category: key }))}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-all ring-1 ${
                 form.category === key
-                  ? "bg-[#65341c] ring-[#C8B89A] text-slate-200"
+                  ? "bg-[#5c7a4a] ring-[#a5c89a] text-slate-200"
                   : " bg-gray-300 cursor-pointer ring-white/10 text-slate-500 hover:text-slate-700 hover:ring-[#2C2420] "
               }`}
             >
@@ -165,13 +165,13 @@ function ModalForm({
         <button
           type="button"
           onClick={onClose}
-          className="flex-1 py-2.5 rounded-xl cursor-pointer bg-gray-300 text-slate-700 text-sm font-medium"
+          className="flex-1 py-2.5 rounded-xl cursor-pointer hover:bg-gray-400 bg-gray-300 text-slate-700 hover:text-white text-sm font-medium"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="flex-1 py-2.5 rounded-xl bg-[#5C7A4A] cursor-pointer text-white text-sm font-semibold"
+          className="flex-1 py-2.5 rounded-xl bg-[#a46240] hover:bg-[#65341c] cursor-pointer text-white text-sm font-semibold"
         >
           {editingTimer ? "Save Changes" : "Create Timer"}
         </button>
@@ -211,7 +211,7 @@ export function AddCountdownTimerModal({
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-xl bg-gray-300 text-slate-400 cursor-pointer  hover:text-white hover:border-[#8B4A2A] hover:bg-[#65341c]
+              className="p-2 rounded-xl bg-gray-300 text-slate-400 cursor-pointer  hover:text-white hover:border-gray-500 hover:bg-gray-500
 "
             >
               <X size={18} />

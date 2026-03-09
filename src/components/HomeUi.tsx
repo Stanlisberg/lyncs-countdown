@@ -17,10 +17,10 @@ export function HomeUi({ addTimer }: IHomeProps) {
 
       <button
         onClick={addTimer}
-        className="flex items-center gap-2 px-6 py-3 cursor-pointer rounded-2xl bg-gradient-to-r from-[#5C7A4A] to-[#5C7A4A] text-white font-semibold text-sm transition-all shadow-lg  hover:shadow-violet-500/50 hover:scale-105 active:scale-95"
+        className="flex items-center gap-2 px-6 py-3 cursor-pointer rounded-2xl bg-[#5C7A4A] text-white font-semibold text-sm transition-all shadow-lg  hover:shadow-[#a7c197] hover:scale-105 active:scale-95"
       >
         <Plus size={18} />
-        Create your first timer
+        Create your first countdown
       </button>
       <div className="flex flex-wrap justify-center gap-2 mt-8">
         {[

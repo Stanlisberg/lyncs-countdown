@@ -9,3 +9,7 @@ export const ConvertLocalDateTimeString = (isoString?: string): string => {
   }
   return format(new Date(isoString), "yyyy-MM-dd'T'HH:mm");
 };
+
+export function GenerateId(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+}

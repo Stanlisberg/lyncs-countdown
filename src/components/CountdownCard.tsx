@@ -26,14 +26,15 @@ const COLOR_OBJ: Record<
 };
 
 const URGENCY_BADGE: Record<string, { label: string; classes: string }> = {
-  distant: { label: "Upcoming", classes: "bg-[#8B4A2A] text-white" },
+  distant: { label: "Upcoming", classes: "bg-[#8B4A2A] text-[efefee]" },
   upcoming: {
     label: "This Week",
-    classes: "bg-gray-400 text-white ring-1 ring-gray-400",
+    classes: "bg-gray-400 text-gray-700 ring-1 ring-gray-400",
   },
   imminent: {
     label: "Very Soon!",
-    classes: "bg-gray-400 text-white ring-1 ring-gray-400 animate-pulse",
+    classes:
+      "bg-rose-500/20 text-rose-500 ring-1 ring-rose-500/40 animate-pulse",
   },
   past: { label: "Passed", classes: "bg-slate-700/40 text-slate-500" },
 };

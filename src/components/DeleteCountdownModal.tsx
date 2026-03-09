@@ -40,7 +40,7 @@ export function DeleteCountdownModal({
             </div>
             <button
               onClick={onHandleCancel}
-              className="p-1.5 cursor-pointer rounded-lg bg-gray-400 text-white hover:text-white hover:bg-[#65341c]"
+              className="p-1.5 cursor-pointer rounded-lg bg-gray-400 text-white hover:text-white hover:bg-gray-500"
             >
               <X size={16} />
             </button>

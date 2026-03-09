@@ -7,12 +7,9 @@ import { HomeUi } from "../components/HomeUi";
 import { CountdownCard } from "../components/CountdownCard";
 import { AddCountdownTimerModal } from "../components/AddCountdownModal";
 import { DeleteCountdownModal } from "../components/DeleteCountdownModal";
+import { GenerateId } from "../utils/helpers";
 
-type SortOption = "created" | "date" | "name";
-
-function generateId(): string {
-  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-}
+type ISortOption = "created" | "date" | "name";
 
 const HomePage = () => {
   const [timers, setTimers] = useLocalStorage<ICountdownTimer[]>(
@@ -26,7 +23,7 @@ const HomePage = () => {
   const [deletingTimer, setDeletingTimer] = useState<ICountdownTimer | null>(
     null,
   );
-  const [sortBy, setSortBy] = useState<SortOption>("date");
+  const [sortBy, setSortBy] = useState<ISortOption>("date");
   const [formKey, setFormKey] = useState(0);
   const [now, setNow] = useState<number>(() => new Date().getTime());
 
@@ -41,7 +38,7 @@ const HomePage = () => {
     (data: Omit<ICountdownTimer, "id" | "createdAt">) => {
       const newTimer: ICountdownTimer = {
         ...data,
-        id: generateId(),
+        id: GenerateId(),
         createdAt: new Date().toISOString(),
       };
       setTimers((prev) => [...prev, newTimer]);
@@ -63,24 +60,21 @@ const HomePage = () => {
 
   const onHandleDelete = () => {
     if (!deletingTimer) return;
-    setTimers((prev) => prev.filter((t) => t.id !== deletingTimer.id));
+    setTimers((prev) => prev.filter((timer) => timer.id !== deletingTimer.id));
     setDeletingTimer(null);
     showErrorToast("Countdown Deleted!");
   };
 
-  const openEdit = useCallback((timer: ICountdownTimer) => {
+  const openEdit = (timer: ICountdownTimer) => {
     setEditingTimer(timer);
     setFormKey((k) => k + 1);
     setIsModalOpen(true);
-  }, []);
+  };
 
-  const openDelete = useCallback(
-    (id: string) => {
-      const timer = timers.find((t) => t.id === id);
-      if (timer) setDeletingTimer(timer);
-    },
-    [timers],
-  );
+  const openDelete = (id: string) => {
+    const timer = timers.find((timer) => timer.id === id);
+    if (timer) setDeletingTimer(timer);
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -137,7 +131,7 @@ const HomePage = () => {
                   <SortAsc size={13} className="text-white" />
                   <select
                     value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as SortOption)}
+                    onChange={(e) => setSortBy(e.target.value as ISortOption)}
                     className="bg-transparent text-slate-300 text-xs font-medium outline-none cursor-pointer"
                   >
                     <option value="date">Filter By Date</option>
@@ -149,7 +143,7 @@ const HomePage = () => {
 
               <button
                 onClick={openAdd}
-                className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-xl bg-[#5C7A4A] text-white text-sm font-semibold hover:scale-105 active:scale-95"
+                className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-xl bg-[#5C7A4A] text-white text-sm hover:shadow-[#a7c197] font-semibold hover:scale-105 active:scale-95"
               >
                 <Plus size={16} />
                 <span>Add Timer</span>
