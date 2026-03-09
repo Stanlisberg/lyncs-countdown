@@ -47,6 +47,10 @@ Lightweight, tree-shakeable, and excellent for date formatting without the overh
 
 Consistent, clean icon set that integrates perfectly with React and Tailwind.
 
+### Why `React-toastify`?
+
+Provides a simple and reliable way to display feedback notification when adding, editing or deleting a countdown timer.
+
 ## What I'd Improve With More Time
 
 1. **Notifications** — Browser push notifications when a timer hits zero
